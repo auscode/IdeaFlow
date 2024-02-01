@@ -1,56 +1,29 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Card from './components/Card';
 import {
   SafeAreaView,
   ScrollView,
-  Button,
   StatusBar,
+  TouchableOpacity,
   StyleSheet,
   Text,
   Image,
   View,
-  useColorScheme,
 } from 'react-native';
 
 const Separator = () => <View style={styles.separator} />;
 function App(): React.JSX.Element {
-  const colorScheme = useColorScheme();
-  const [theme, setTheme] = useState(colorScheme);
-
-  useEffect(() => {
-    setTheme(colorScheme);
-  }, [colorScheme]);
-
   return (
-    <SafeAreaView
-      style={[
-        styles.safeArea,
-        theme === 'dark' ? styles.darkTheme : styles.lightTheme,
-      ]}>
+    <SafeAreaView style={styles.safeArea}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <StatusBar
-          barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
-          hidden={false}
-          backgroundColor={theme === 'dark' ? '#000000' : '#FFFFFF'}
-          translucent={true}
-        />
+        {/*  <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#00BCD4" translucent = {true}/> */}
+        <StatusBar backgroundColor="#000000" translucent={true} />
         <View style={styles.container}>
           <View>
             <Text style={styles.logo}>IdeaFlow</Text>
           </View>
           <Separator />
-          <View style={styles.navMenu}>
-            <View style={styles.navItem}>
-              <Text style={styles.navText}>Home</Text>
-            </View>
-            <View style={styles.navItem}>
-              <Text style={styles.navText}>About Us</Text>
-            </View>
-            <View style={styles.navItem}>
-              <Text style={styles.navText}>Contact Us</Text>
-            </View>
-          </View>
-          <View>
+          <View style={styles.imgTopSection}>
             <View>
               <Image
                 source={{
@@ -60,143 +33,115 @@ function App(): React.JSX.Element {
               />
             </View>
             <View style={styles.divTitle}>
-              <Text style={styles.divTitleText}>future ahead</Text>
+              <Text style={styles.divTitleText}>
+                The Intelligence Amplification Company
+              </Text>
             </View>
             <View style={styles.divDesc}>
               <Text style={styles.divDescText}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                ducimus alias modi harum, molestias, praesentium et at dicta
-                eligendi perferendis adipisci velit fugiat facilis? Unde enim
-                laudantium magnam autem deserunt!
+                We’re creating an ecosystem for humans and machines to work
+                together to solve the world’s most important problems – starting
+                with a notebook that augments your intelligence.
               </Text>
             </View>
-            <Button
-              // onPress={onPressLearnMore}
-              title="Learn More"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
+            <View>
+              <TouchableOpacity style={styles.learnMoreButton}>
+                <Text style={styles.learnMoreButtonText}>
+                  Try Ideaflow Notes
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.btnSupportLinks}>
+              <View>
+                <Text style={styles.btnSupportLinksText}>ios</Text>
+              </View>
+              <View>
+                <Text style={styles.btnSupportLinksText}>Guide</Text>
+              </View>
+              <View>
+                <Text style={styles.btnSupportLinksText}>Twitter</Text>
+              </View>
+              <View>
+                <Text style={styles.btnSupportLinksText}>Letter</Text>
+              </View>
+            </View>
           </View>
           <View style={styles.AboutUs}>
-            <Text style={styles.aboutUsHeading}>About us</Text>
+            <Text style={styles.aboutUsHeading}>
+              Connecting people with matching puzzle pieces
+            </Text>
+            <Separator />
             <Text style={styles.aboutUsHeadingDesc}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi
-              error minus numquam aliquam tempora dicta a autem vero, voluptate
-              perspiciatis quidem dolorum illum aspernatur in consequuntur iusto
-              eius voluptatibus! Eligendi eaque sed iusto reiciendis? Asperiores
-              necessitatibus quas ipsam in nam libero sapiente, ex voluptatem,
-              animi architecto temporibus reiciendis laudantium. Illum?
+              There are millions of scientists trying to cure the likes of AIDS
+              and Alzheimer’s. Maybe the cure is currently separated in
+              different people’s heads. How can we design the web so that these
+              half-formed solutions can come together?
+            </Text>
+            <Text style={styles.aboutUsHeadingDescTag}>
+              - Sir Tim Berners-Lee, Creator of the Web
             </Text>
           </View>
-          <View>
+          <View style={styles.cardDiv}>
             <Card />
           </View>
-          <View style={styles.soloCard}>
-            <Text style={styles.soloCardText}>Awesome place</Text>
-            <View style={styles.iconSection}>
-              <View>
-                <Image
-                  source={{
-                    uri: 'https://wallpapers.com/images/hd/neon-blue-domo-logo-m89momzcez2oiqeo.jpg',
-                  }}
-                  style={styles.soloCardImg}
-                />
-              </View>
-              <View>
-                <Text style={styles.soloCardDesc}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
-                  eos perferendis. Libero ex assumenda obcaecati, sunt
-                  dignissimos non distinctio consequuntur eos ad iusto eveniet
-                  fugit fugiat corrupti, velit quaerat. Possimus.
+          <View style={styles.whiteDiv}>
+            <View style={styles.sectionLast}>
+              <Text style={styles.sectionText1}> We're Hiring Key Roles </Text>
+              <Text style={styles.sectionText2}>
+                {' '}
+                Help us extend the human mind.{' '}
+              </Text>
+              <TouchableOpacity style={styles.learnMoreButton}>
+                <Text style={styles.learnMoreButtonText}>
+                  Join us or refer someone!
                 </Text>
-              </View>
-            </View>
-            <View style={styles.iconSection}>
-              <View>
-                <Image
-                  source={{
-                    uri: 'https://wallpapers.com/images/hd/neon-blue-domo-logo-m89momzcez2oiqeo.jpg',
-                  }}
-                  style={styles.soloCardImg}
-                />
-              </View>
-              <View>
-                <Text style={styles.soloCardDesc}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
-                  eos perferendis. Libero ex assumenda obcaecati, sunt
-                  dignissimos non distinctio consequuntur eos ad iusto eveniet
-                  fugit fugiat corrupti, velit quaerat. Possimus.
-                </Text>
-              </View>
-            </View>
-            <View style={styles.iconSection}>
-              <View>
-                <Image
-                  source={{
-                    uri: 'https://wallpapers.com/images/hd/neon-blue-domo-logo-m89momzcez2oiqeo.jpg',
-                  }}
-                  style={styles.soloCardImg}
-                />
-              </View>
-              <View>
-                <Text style={styles.soloCardDesc}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
-                  eos perferendis. Libero ex assumenda obcaecati, sunt
-                  dignissimos non distinctio consequuntur eos ad iusto eveniet
-                  fugit fugiat corrupti, velit quaerat. Possimus.
-                </Text>
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
-          <View>
-            <Text>lmnop</Text>
-            <Button
-              // onPress={onPressLearnMore}
-              title="Learn More"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
+          <View style={styles.containerFoot}>
+            <View style={styles.footer}>
+              <Text style={styles.footLogo}>TRINKET</Text>
+            </View>
 
-            <View style={styles.soloCard}>
-              <Text>abc</Text>
-              <Text>def</Text>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                asperiores ipsam provident eaque adipisci assumenda doloremque
-                architecto omnis non, minus corporis natus iste, voluptatibus
-                beatae eveniet! A sequi ullam sed.
+            <View style={styles.footerContent}>
+              <Text style={styles.footerTitle}>Explore</Text>
+              <Text style={styles.footerLink}>#rabbithole</Text>
+              <Text style={styles.footerLink}>Memex</Text>
+              <Text style={styles.footerLink}>
+                Niklas Luhmann's Zettelkasten
               </Text>
-              <Text>Apply Now</Text>
-            </View>
-            <Text>abc</Text>
-            <View style={styles.soloCard}>
-              <Text>abc</Text>
-              <Text>def</Text>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                asperiores ipsam provident eaque adipisci assumenda doloremque
-                architecto omnis non, minus corporis natus iste, voluptatibus
-                beatae eveniet! A sequi ullam sed.
+              <Text style={styles.footerLink}>Collective IQ</Text>
+              <Text style={styles.footerLink}>Intelligence amplification</Text>
+              <Text style={styles.footerLink}>
+                Tim Berners-Lee’s Giant Global Graph
               </Text>
-              <Text>Apply Now</Text>
-            </View>
-            <View style={styles.soloCard}>
-              <Text>abc</Text>
-              <Text>def</Text>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                asperiores ipsam provident eaque adipisci assumenda doloremque
-                architecto omnis non, minus corporis natus iste, voluptatibus
-                beatae eveniet! A sequi ullam sed.
+              <Text style={styles.footerLink}>Polymath Project</Text>
+              <Text style={styles.footerLink}>
+                Category Theory for Scientists
               </Text>
-              <Text>Apply Now</Text>
+              <Text style={styles.footerLink}>ideaflowplan.jacobcole.net</Text>
+              <Text style={styles.footerLink}>Privacy Policy</Text>
             </View>
-            <Text>abc</Text>
-            <Text>abc</Text>
-            <Text>abc</Text>
-          </View>
-          <View style={styles.footer}>
-            <Text style={styles.footLogo}>TRINKET</Text>
+
+            <View style={styles.footerContent}>
+              <Text style={styles.footerTitle}>Updates</Text>
+              <Text style={styles.footerLink}>Latest updates</Text>
+              <Text style={styles.footerLink}>Blog</Text>
+              <Text style={styles.footerLink}>Funding</Text>
+              <Text style={styles.footerLink}>Bullet View Video</Text>
+            </View>
+
+            <View style={styles.footerContent}>
+              <Text style={styles.footerTitle}>Connect</Text>
+              <Text style={styles.footerLink}>Contact</Text>
+              <Text style={styles.footerLink}>Email</Text>
+              <Text style={styles.footerLink}>Linkedin</Text>
+              <Text style={styles.footerLink}>Facebook</Text>
+              <Text style={styles.footerLink}>Twitter</Text>
+            </View>
+            <Text style={styles.copyrightText}>
+              Copyright © 2020 Ideaflow, Inc. All rights reserved.
+            </Text>
           </View>
         </View>
       </ScrollView>
@@ -207,8 +152,7 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    // marginHorizontal: 5,
-    marginTop: 25,
+    backgroundColor: '#000000',
   },
   separator: {
     marginVertical: 8,
@@ -216,79 +160,149 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   container: {
-    // marginTop: 30,
+    marginVertical: 30,
   },
   logo: {
     fontSize: 24,
     textAlign: 'center',
+    color: '#FFFFFF',
   },
-  navMenu: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginVertical: 4,
-  },
-  navItem: {
-    // marginBottom: 10,
-  },
-  navText: {
-    fontSize: 20,
-    fontWeight: '700',
+  imgTopSection: {
+    marginHorizontal: 20,
+    marginBottom: 30,
   },
   imgDemo: {
-    height: 200,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
+    height: 400,
+    borderRadius: 6,
+    marginBottom: 30,
   },
-  divTitle: {},
-  divTitleText: {},
-  divDesc: {},
-  divDescText: {},
-  AboutUs: {},
-  aboutUsHeading: {},
-  aboutUsHeadingDesc: {},
-  soloCard: {
-    display: 'flex',
-    marginBottom: 4,
-    paddingLeft: 3,
-    paddingRight: 3,
-    backgroundColor: '#8D3DAF',
-    padding: 4,
-    borderRadius: 10,
+  divTitle: {
+    marginTop: 10,
   },
-  soloCardText: {
-    textAlign: 'center',
+  divTitleText: {
+    textAlign: 'left',
+    fontSize: 40,
+    fontWeight: '600',
+    color: '#FFFFFF',
   },
-  iconSection: {
+  divDesc: {
+    marginVertical: 10,
+  },
+  divDescText: {
+    textAlign: 'left',
+    fontSize: 20,
+    fontWeight: '300',
+    color: '#FFFFFF',
+  },
+  learnMoreButton: {
+    borderRadius: 5,
+    backgroundColor: '#0B60B0',
+    padding: 10,
+    alignItems: 'center',
+  },
+  learnMoreButtonText: {
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontSize: 20,
+  },
+  btnSupportLinks: {
     flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'space-between',
+    marginHorizontal: 5,
+    marginVertical: 20,
   },
-  soloCardImg: {
-    width: 50,
-    height: 50,
-    borderRadius: 60 / 2,
-    marginRight: 14,
+  btnSupportLinksText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#40A2D8',
   },
-  soloCardDesc: {},
-  footer: {
+  AboutUs: {
+    marginVertical: 20,
+    marginHorizontal: 20,
+  },
+  aboutUsHeading: {
+    fontSize: 35,
+    fontWeight: '700',
+    textAlign: 'left',
+    color: '#FFFFFF',
+    marginBottom: 5,
+  },
+  aboutUsHeadingDesc: {
+    fontSize: 20,
+    textAlign: 'left',
+    fontStyle: 'italic',
+    fontWeight: '300',
+    color: '#FFFFFF',
+    marginBottom: 5,
+  },
+  aboutUsHeadingDescTag: {
+    marginTop: 10,
+    marginBottom: 5,
+    fontSize: 15,
+    textAlign: 'left',
+    color: '#FFFFFF',
+    fontStyle: 'italic',
+    fontWeight: '100',
+  },
+
+  cardDiv: {
+    marginTop: 20,
+  },
+  whiteDiv: {
+    backgroundColor: '#FFFFFF',
+  },
+  sectionLast: {
+    marginHorizontal: 20,
+    marginVertical: 20,
+  },
+  sectionText1: {
+    fontSize: 30,
+    fontWeight: '800',
+    textAlign: 'center',
+    marginVertical: 5,
+    color: '#000000',
+  },
+  sectionText2: {
+    fontSize: 14,
+    fontWeight: '300',
+    textAlign: 'center',
+    marginVertical: 5,
+    color: '#000000',
+  },
+
+  containerFoot: {
+    flex: 1,
     backgroundColor: '#000000',
-    paddingHorizontal: 10,
     paddingVertical: 10,
+  },
+  footer: {
+    marginHorizontal: 20,
   },
   footLogo: {
     fontSize: 24,
     fontFamily: 'Times New Roman',
+    color: 'white',
+    fontWeight: '600',
   },
-
-  // Add new styles for dark and light themes
-  lightTheme: {
-    backgroundColor: '#FFFFFF',
+  footerContent: {
+    marginVertical: 10,
+    marginHorizontal: 20,
+    color: 'white',
   },
-  darkTheme: {
-    backgroundColor: '#000000',
+  footerTitle: {
+    fontSize: 18,
+    color: 'white',
+    fontWeight: 'bold',
+    marginBottom: 5,
   },
-  lightText: {
-    color: '#000000',
+  footerLink: {
+    color: 'white',
+    marginBottom: 5,
   },
-  darkText: {
+  copyrightText: {
+    marginBottom: 5,
+    marginHorizontal: 20,
     color: '#FFFFFF',
   },
 });

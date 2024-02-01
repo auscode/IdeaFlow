@@ -5,66 +5,62 @@ export default function Card() {
   const contacts = [
     {
       uid: '1',
-      name: 'John Doe',
-      status: 'Online',
+      name: 'Marty Weiner',
+      status: 'Former CTO, Reddit',
+      position: 'Ideaflow Advisor',
       imgUrl:
         'https://attiehandassociates.co.za/wp-content/uploads/2014/08/Profile-Pic-Demo.png',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque eius omnis temporibus autem molestiae libero ea reprehenderit aliquam nostrum adipisci nam molestias praesentium mollitia, minus quidem natus veritatis eligendi unde?',
+      desc: 'A key step to realizing the potential of the Web as a medium for collective intelligence.',
     },
     {
       uid: '2',
-      name: 'Jane Smith',
-      status: 'Offline',
+      name: 'John Devadoss',
+      status: 'Founding Director,',
+      position: 'Microsoft Digital Consulting',
       imgUrl:
         'https://attiehandassociates.co.za/wp-content/uploads/2014/08/Profile-Pic-Demo.png',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque eius omnis temporibus autem molestiae libero ea reprehenderit aliquam nostrum adipisci nam molestias praesentium mollitia, minus quidem natus veritatis eligendi unde?',
+      desc: 'Ideaflow is the force multiplier for business productivity in this new normal.',
     },
     {
       uid: '3',
-      name: 'Bob Johnson',
-      status: 'Away',
+      name: 'Tim Draper',
+      status: 'Founder, DFJ',
+      position: 'Ideaflow Investor',
       imgUrl:
         'https://attiehandassociates.co.za/wp-content/uploads/2014/08/Profile-Pic-Demo.png',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque eius omnis temporibus autem molestiae libero ea reprehenderit aliquam nostrum adipisci nam molestias praesentium mollitia, minus quidem natus veritatis eligendi unde?',
+      desc: 'The amount of value that can be unlocked by connecting the right people and ideas together is incredible. I’m very excited for what Ideaflow is building',
     },
     {
       uid: '4',
-      name: 'Ray Cole',
-      status: 'decline',
+      name: 'Harshit Mishra',
+      status: 'Full Stack Developer',
+      position: 'Ideaflow Developer',
       imgUrl:
         'https://attiehandassociates.co.za/wp-content/uploads/2014/08/Profile-Pic-Demo.png',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque eius omnis temporibus autem molestiae libero ea reprehenderit aliquam nostrum adipisci nam molestias praesentium mollitia, minus quidem natus veritatis eligendi unde?',
+      desc: 'Ideaflow is the force multiplier for business productivity in this new normal.',
     },
   ];
   return (
     <View>
       <Text style={styles.headingText}>Advisors</Text>
       <ScrollView style={styles.container} scrollEnabled={false}>
-        {contacts.map(({uid, name, status, imgUrl}) => (
-          <View key={uid} style={styles.userCard}>
-            <Image source={{uri: imgUrl}} style={styles.userImage} />
-            <View>
-              <Text style={styles.userName}>{name}</Text>
-              <Text style={styles.userStatus}>{status}</Text>
-            </View>
-          </View>
-        ))}
-      </ScrollView>
-      <Text style={styles.headingText}>Advisors</Text>
-      <ScrollView style={styles.container} scrollEnabled={false}>
-        {contacts.map(({uid, name, status, imgUrl, desc}) => (
+        {contacts.map(({uid, name, status, imgUrl, position, desc}) => (
           <View key={uid} style={styles.deckCard}>
             <View style={styles.userCard}>
-              <Image source={{uri: imgUrl}} style={styles.userImage} />
-              <View>
-                <Text style={styles.userName}>{name}</Text>
-                <Text style={styles.userStatus}>{status}</Text>
-                {/* <Text style={styles.userStatus}>{status}</Text> */}
+              <View style={styles.userHeadBox}>
+                <View style={styles.imgDiv}>
+                  <Image source={{uri: imgUrl}} style={styles.userImage} />
+                </View>
+                <View style={styles.textDiv}>
+                  <Text style={styles.userName}>{name}</Text>
+                  <Text style={styles.userStatus}>{status}</Text>
+                  <Text style={styles.userPosition}>{position}</Text>
+                </View>
               </View>
-              {/* <View>
-            </View> */}
+              <View>
+                <Text style={styles.userDescription}>{desc}</Text>
+              </View>
             </View>
-            <Text style={styles.userDescription}>{desc}</Text>
           </View>
         ))}
       </ScrollView>
@@ -74,44 +70,56 @@ export default function Card() {
 
 const styles = StyleSheet.create({
   headingText: {
-    fontSize: 24,
+    fontSize: 30,
     fontWeight: 'bold',
-    paddingHorizontal: 8,
+    paddingHorizontal: 30,
+    paddingBottom: 20,
+    color: '#FFFFFF',
   },
+
   container: {
-    paddingHorizontal: 16,
-    marginBottom: 3,
+    paddingHorizontal: 30,
+    marginBottom: 5,
   },
   deckCard: {
-    backgroundColor: '#8D3DAF',
-    marginBottom: 4,
-    padding: 4,
-    borderRadius: 10,
+    backgroundColor: '#0e0e0e',
+    marginBottom: 15,
   },
   userCard: {
-    flex: 1,
+    marginHorizontal: 10,
+    marginVertical: 10,
+  },
+  userHeadBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 4,
-    backgroundColor: '#8D3DAF',
-    padding: 4,
-    borderRadius: 10,
+    justifyContent: 'space-evenly',
+    flexWrap: 'nowrap',
+  },
+  imgDiv: {
+    width: '50%',
+  },
+  textDiv: {
+    width: '50%',
   },
   userImage: {
-    width: 60,
-    height: 60,
+    width: 100,
+    height: 100,
     borderRadius: 60 / 2,
-    marginRight: 14,
   },
   userName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#FFF',
+    color: '#FFFFFF',
   },
   userStatus: {
     fontSize: 12,
+    color: '#FFFFFF',
+  },
+  userPosition: {
+    color: '#FFFFFF',
   },
   userDescription: {
     fontSize: 16,
+    color: '#FFFFFF',
   },
 });
