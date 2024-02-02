@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
+// import ClipboardSection from './components/ClipboardSection';
+
 import {
   SafeAreaView,
   ScrollView,
@@ -16,7 +18,6 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/*  <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#00BCD4" translucent = {true}/> */}
         <StatusBar backgroundColor="#000000" translucent={true} />
         <View style={styles.container}>
           <View>
@@ -33,7 +34,7 @@ function App(): React.JSX.Element {
               />
             </View>
             <View style={styles.divTitle}>
-              <Text style={styles.divTitleText}>
+              <Text style={styles.divTitleText2}>
                 The Intelligence Amplification Company
               </Text>
             </View>
@@ -80,6 +81,36 @@ function App(): React.JSX.Element {
             <Text style={styles.aboutUsHeadingDescTag}>
               - Sir Tim Berners-Lee, Creator of the Web
             </Text>
+          </View>
+          <View style={styles.imgTopSection}>
+            <View>
+              <Image
+                source={{
+                  uri: 'https://i.pinimg.com/originals/a1/77/df/a177dfc84703c31afa0d501ccf43fe4f.gif',
+                }}
+                style={styles.imgDemo2}
+              />
+            </View>
+            <View style={styles.divTitle}>
+              <Text style={styles.divTitleText2}>
+                The auto-suggest layer for human thinking
+              </Text>
+            </View>
+            <Separator />
+            <View style={styles.divDesc}>
+              <Text style={styles.divDescText2}>
+                Connect fragments of information from siloed sources faster than
+                ever before.
+              </Text>
+              <Text style={styles.divDescText2}>
+                Your organization's collective memory at your fingertips.
+              </Text>
+            </View>
+            <View>
+              <TouchableOpacity style={styles.learnMoreButton}>
+                <Text style={styles.learnMoreButtonText}>Learn More</Text>
+              </TouchableOpacity>
+            </View>
           </View>
           <View style={styles.cardDiv}>
             <Card />
@@ -168,11 +199,17 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   imgTopSection: {
+    marginTop: 30,
     marginHorizontal: 20,
     marginBottom: 30,
   },
   imgDemo: {
     height: 400,
+    borderRadius: 6,
+    marginBottom: 30,
+  },
+  imgDemo2: {
+    height: 450,
     borderRadius: 6,
     marginBottom: 30,
   },
@@ -185,13 +222,27 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFFFFF',
   },
+  divTitleText2: {
+    textAlign: 'left',
+    fontSize: 30,
+    fontWeight: '600',
+    color: '#FFFFFF',
+  },
   divDesc: {
     marginVertical: 10,
   },
   divDescText: {
+    marginVertical: 10,
     textAlign: 'left',
     fontSize: 20,
     fontWeight: '300',
+    color: '#FFFFFF',
+  },
+  divDescText2: {
+    marginVertical: 10,
+    textAlign: 'left',
+    fontSize: 20,
+    fontWeight: '200',
     color: '#FFFFFF',
   },
   learnMoreButton: {
